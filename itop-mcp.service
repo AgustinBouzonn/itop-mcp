@@ -1,0 +1,14 @@
+[Unit]
+Description=iTop MCP Server
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/itop-mcp.env
+ExecStart=/usr/bin/python3 /opt/itop-mcp/run_sse.py
+WorkingDirectory=/opt/itop-mcp
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
